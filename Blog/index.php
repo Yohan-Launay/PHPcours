@@ -1,31 +1,10 @@
-<?php
-$title = 'ENI ECOLE - TP Fil Rouge - Gestion des acticles';
-$desc = 'Apprenez PHP en créant et en gérant des articles en ligne';
-?>
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Blog</title>
-</head>
+<?php require_once 'component/_head.php' ?>
 <body>
 <main>
+    <?php require_once 'component/_menu.php' ?>
     <div class="container py-4">
-        <header class="pb-3 mb-4 border-bottom">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Blog</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <?php require_once 'component/_menu.php' ?>
-                </div>
-            </nav>
-        </header>
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Custom jumbotron</h1>
