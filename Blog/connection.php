@@ -8,7 +8,7 @@ if (!empty($_POST)) {
     $password = $_POST['password'];
 
     // Connexion à la base de données
-    require_once 'includes/connect.php';
+    require_once 'src/includes/connect.php';
 
     global $pdo;
 
