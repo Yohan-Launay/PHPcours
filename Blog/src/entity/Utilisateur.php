@@ -2,15 +2,30 @@
 
 namespace src\entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Utilisateur
 {
-    // nom, prenom, pseudo, email, password
+    #[ORM\Id]
+    private $id;
+    #[ORM\Column(type: 'string', length: 255)]
     private $nom;
+    #[ORM\Column(type: 'string', length: 255)]
     private $prenom;
+    #[ORM\Column(type: 'string', length: 255)]
     private $pseudo;
+    #[ORM\Column(type: 'string', length: 255)]
     private $email;
+    #[ORM\Column(type: 'string', length: 255)]
     private $password;
 
+    /**
+     * @param $nom
+     * @param $prenom
+     * @param $pseudo
+     * @param $email
+     * @param $password
+     */
     public function __construct($nom, $prenom, $pseudo, $email, $password)
     {
         $this->nom = $nom;

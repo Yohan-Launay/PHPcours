@@ -2,21 +2,39 @@
 
 namespace src\entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Article
 {
+    #[ORM\Id]
     private $id;
-    private $titre;
-    private $contenu;
-    private $date;
-    private $id_utilisateur;
 
-    public function __construct($id, $titre, $contenu, $date, $id_utilisateur)
+    #[ORM\Column(type: 'string', length: 255)]
+    private $titre;
+
+    #[ORM\Column(type: 'text')]
+    private $contenu;
+
+    #[ORM\Column(type: 'datetime')]
+    private $date;
+
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class)]
+    private Utilisateur $utilisateur;
+
+    /**
+     * @param $id
+     * @param $titre
+     * @param $contenu
+     * @param $date
+     * @param Utilisateur $utilisateur
+     */
+    public function __construct($id, $titre, $contenu, $date, Utilisateur $utilisateur)
     {
         $this->id = $id;
         $this->titre = $titre;
         $this->contenu = $contenu;
         $this->date = $date;
-        $this->id_utilisateur = $id_utilisateur;
+        $this->utilisateur = $utilisateur;
     }
 
     /**
@@ -27,13 +45,13 @@ class Article
         return $this->id;
     }
 
-    // /**
-    //  * @param mixed $id
-    //  */
-    // public function setId($id): void
-    // {
-    //     $this->id = $id;
-    // }
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
@@ -43,13 +61,13 @@ class Article
         return $this->titre;
     }
 
-    // /**
-    //  * @param mixed $titre
-    //  */
-    // public function setTitre($titre): void
-    // {
-    //     $this->titre = $titre;
-    // }
+    /**
+     * @param mixed $titre
+     */
+    public function setTitre($titre): void
+    {
+        $this->titre = $titre;
+    }
 
     /**
      * @return mixed
@@ -59,13 +77,13 @@ class Article
         return $this->contenu;
     }
 
-    // /**
-    //  * @param mixed $contenu
-    //  */
-    // public function setContenu($contenu): void
-    // {
-    //     $this->contenu = $contenu;
-    // }
+    /**
+     * @param mixed $contenu
+     */
+    public function setContenu($contenu): void
+    {
+        $this->contenu = $contenu;
+    }
 
     /**
      * @return mixed
@@ -75,27 +93,21 @@ class Article
         return $this->date;
     }
 
-    // /**
-    //  * @param mixed $date
-    //  */
-    // public function setDate($date): void
-    // {
-    //     $this->date = $date;
-    // }
-
     /**
-     * @return mixed
+     * @param mixed $date
      */
-    public function getId_utilisateur()
+    public function setDate($date): void
     {
-        return $this->id_utilisateur;
+        $this->date = $date;
     }
 
-    // /**
-    //  * @param mixed $id_utilisateur
-    //  */
-    // public function setId_utilisateur($id_utilisateur): void
-    // {
-    //     $this->id_utilisateur = $id_utilisateur;
-    // }
+    public function getUtilisateur(): Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(Utilisateur $utilisateur): void
+    {
+        $this->utilisateur = $utilisateur;
+    }
 }
