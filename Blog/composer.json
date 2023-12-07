@@ -5,6 +5,9 @@
     }
   },
   "require": {
-    "doctrine/orm": "^2.17"
+    "doctrine/orm": "^2.9",
+    "doctrine/dbal": "^2.12",
+    "doctrine/doctrine-bundle": "^2.4",
+    "symfony/yaml": "^5.0"
   }
 }
